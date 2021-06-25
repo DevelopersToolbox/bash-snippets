@@ -54,6 +54,7 @@ This is a collection of useful(ish) bash snippets. The snippets are all simple s
 | [get-git-root.sh](src/get-git-root/get-git-root.sh) | Get the root directory of a given git repo (and handle correctly when it isn't a git repo). |
 | [get-script-info.sh](src/get-script-info/get-script-info.sh) | Get information about a script (full path and script name). |
 | [get-terraform-version.sh](src/get-terraform-version/get-terraform-version.sh) | Get the current terraform version. |
+| [get-version-string.sh](src/get-version-string/get-version0string.sh) | Extra a symver version from a string. |
 | [is-git-repo.sh](src/is-git-repo/is-git-repo.sh) | Check if a given directory contains a git repo. |
 | [rollingback.sh](src/rollingback/rollingback.sh) | Using signals to create rollback functions for cleaner scripting. |
 | [stacktrace.sh](src/stacktrace/stacktrace.sh) | Provide a stack trace for from main to the point of of calling the stacktrace. |
