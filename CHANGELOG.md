@@ -7,7 +7,9 @@ This changelog was automatically generated using [Caretaker](https://github.com/
 
 ### [Unreleased](https://github.com/DevelopersToolbox/bash-snippets/compare/v0.1.0...HEAD)
 
-- Fixed shellcheck errors (after shellcheck upgrade) [`[head]`](https://github.com/DevelopersToolbox/bash-snippets/commit/)
+- Update countdown [`[head]`](https://github.com/DevelopersToolbox/bash-snippets/commit/)
+
+- Fixed shellcheck errors (after shellcheck upgrade) [`[bfc6537]`](https://github.com/DevelopersToolbox/bash-snippets/commit/bfc6537f873c90dd9b8adb5ada45092539d3548d)
 
 - Added countdown.sh [`[91f0337]`](https://github.com/DevelopersToolbox/bash-snippets/commit/91f03375472e39189e3a666903189d7e267f69a7)
 

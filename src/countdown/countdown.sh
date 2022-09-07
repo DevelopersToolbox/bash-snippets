@@ -3,23 +3,26 @@
 # -------------------------------------------------------------------------------- #
 # Description                                                                      #
 # -------------------------------------------------------------------------------- #
-# This is a simple script to display some text in the center of the screen.        #
+# This is a simple script to display a countdown timeer with optional message.     #
 # -------------------------------------------------------------------------------- #
 
 # -------------------------------------------------------------------------------- #
+# Countdown                                                                        #
 # -------------------------------------------------------------------------------- #
+# Loop for the required numbers of seconds and display the message. We have to     #
+# re-eval each time to ensure that the string is updated correctly.                #
 # -------------------------------------------------------------------------------- #
 
 function countdown()
 {
     local seconds=${1:-0}
-    local prefix=${2:-''}
-    local postfix=${3:-''}
+    local message=${2:-''}
 
     while [ "${seconds}" -gt 0 ]; do
-       echo -ne "${prefix}${seconds}${postfix}\033[0K\r"
-       sleep 1
-       : $((seconds--))
+        eval_message=$(eval "echo ${message}")
+        echo -ne "${eval_message}\033[0K\r"
+        sleep 1
+        : $((seconds--))
     done
     echo
 }
@@ -32,8 +35,7 @@ function countdown()
 
 function run_tests()
 {
-    countdown 3 'Processing will start in ' ' seconds. Press Ctrl+C to abort'
-    countdown 3 '' ' seconds and counting'
+    countdown 3 'Processing will start in $seconds seconds. Press Ctrl+C to abort'
 }
 
 # -------------------------------------------------------------------------------- #
@@ -49,4 +51,3 @@ run_tests
 # -------------------------------------------------------------------------------- #
 # This is the end - nothing more to see here.                                      #
 # -------------------------------------------------------------------------------- #
-
