@@ -1,10 +1,10 @@
 <p align="center">
     <a href="https://github.com/DevelopersToolbox/">
-        <img src="https://cdn.wolfsoftware.com/assets/images/github/organisations/developerstoolbox/black-and-white-circle-256.png" alt="DevelopersToolbox logo" />
+        <img src="https://cdn.wolfsoftware.io/assets/images/github/organisations/developerstoolbox/black-and-white-circle-256.png" alt="DevelopersToolbox logo" />
     </a>
     <br />
-    <a href="https://github.com/DevelopersToolbox/bash-snippets/actions/workflows/pipeline.yml">
-        <img src="https://img.shields.io/github/workflow/status/DevelopersToolbox/bash-snippets/pipeline/master?style=for-the-badge" alt="Github Build Status">
+    <a href="https://github.com/DevelopersToolbox/bash-snippets/actions/workflows/cicd-pipeline.yml">
+        <img src="https://img.shields.io/github/workflow/status/DevelopersToolbox/bash-snippets/CICD%20Pipeline/master?style=for-the-badge" alt="Github Build Status">
     </a>
     <a href="https://github.com/DevelopersToolbox/bash-snippets/releases/latest">
         <img src="https://img.shields.io/github/v/release/DevelopersToolbox/bash-snippets?color=blue&label=Latest%20Release&style=for-the-badge" alt="Release">
@@ -26,7 +26,7 @@
         <img src="https://img.shields.io/badge/Get%20Support-blue?style=for-the-badge" />
     </a>
     <br />
-    <a href="https://wolfsoftware.com/">
+    <a href="https://wolfsoftware.io/">
         <img src="https://img.shields.io/badge/Created%20by%20Wolf%20Software-blue?style=for-the-badge" />
     </a>
 </p>
@@ -46,6 +46,7 @@ This is a collection of useful(ish) bash snippets. The snippets are all simple s
 | [check-prerequisites.sh](src/check-prerequisites/check-prerequisites.sh) | Check prerequisite commands are installed. |
 | [compare-versions.sh](src/compare-versions/compare-versions.sh) | Compare two version strings with optional custom delimiter. |
 | [contains.sh](src/contains/contains.sh) | Check to see if one string contains another. |
+| [countdown.sh](src/countdown/countdown.sh) | Display a simple countdown timer and message. |
 | [error-messages.sh](src/error-messages/error-messages.sh) | Display error, warning and success messages. |
 | [get-confirmation.sh](src/get-confirmation/get-confirmation.sh) | Get user confirmation for an action. |
 | [get-git-root.sh](src/get-git-root/get-git-root.sh) | Get the root directory of a given git repo (and handle correctly when it isn't a git repo). |
@@ -63,4 +64,3 @@ This is a collection of useful(ish) bash snippets. The snippets are all simple s
 | [using-set.sh](src/using-set/using-set.sh) | Using 'set' for more robust shell scripting. |
 | [variable-replace.sh](src/variable-replace/variable-replace.sh) | Replace template variables in a file with values from an associative array. |
 | [verbose-mode.sh](src/verbose-mode/verbose-mode.sh) | Demonstration of script wide verbose/silent mode. |
-

@@ -7,7 +7,9 @@ This changelog was automatically generated using [Caretaker](https://github.com/
 
 ### [Unreleased](https://github.com/DevelopersToolbox/bash-snippets/compare/v0.1.0...HEAD)
 
-- rebrand [`[head]`](https://github.com/DevelopersToolbox/bash-snippets/commit/)
+- Added countdown.sh [`[head]`](https://github.com/DevelopersToolbox/bash-snippets/commit/)
+
+- rebrand [`[ddf8099]`](https://github.com/DevelopersToolbox/bash-snippets/commit/ddf8099421005fb5c052e61a5abc4a1287821b4e)
 
 - Add [`[84791e5]`](https://github.com/DevelopersToolbox/bash-snippets/commit/84791e5f28663e9eb2825ab5f96869a8c83cfbfc)
 
