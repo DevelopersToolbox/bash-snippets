@@ -66,8 +66,8 @@ function run_rollbacks()
     printf '\nTrap Triggers - Running Rollbacks\n\n'
 
     while [ ${#rollback_stack[@]} -ge 1 ]; do
-        ${rollback_stack[${#rollback_stack[@]}-1]} rollback;
-        unset rollback_stack[${#rollback_stack[@]}-1];
+        ${rollback_stack[${#rollback_stack[@]}-1]} rollback
+        unset "rollback_stack[${#rollback_stack[@]}-1]"
     done
 
     exit
