@@ -35,6 +35,7 @@ function countdown()
 
 function run_tests()
 {
+    # shellcheck disable=SC2016
     countdown 3 'Processing will start in $seconds seconds. Press Ctrl+C to abort'
 }
 

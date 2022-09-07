@@ -2,18 +2,8 @@ name: CICD Pipeline
 on: [push, pull_request]
 
 jobs:
-  slack-message-start:
-    name: Slack message start
-    runs-on: ubuntu-latest
-    steps:
-      - name: Slack message
-        uses: magnetikonline/action-slack-workflow-start-finish@v2
-        with:
-          channel: ${{secrets.SLACK_CHANNEL}}
-          webhook-url: ${{secrets.SLACK_WEBHOOK_URL}}
   awesomebot:
     name: Awesomebot
-    needs: slack-message-start
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -29,7 +19,6 @@ jobs:
         run: bash <(curl -s https://raw.githubusercontent.com/CICDToolbox/awesomebot/master/pipeline.sh)
   shellcheck:
     name: ShellCheck
-    needs: slack-message-start
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -37,7 +26,6 @@ jobs:
         run: bash <(curl -s https://raw.githubusercontent.com/CICDToolbox/shellcheck/master/pipeline.sh)
   yaml-lint:
     name: YAML Lint
-    needs: slack-message-start
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
