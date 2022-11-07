@@ -15,51 +15,38 @@
 # Caveat: This only works for numeric version strings.                             #
 # -------------------------------------------------------------------------------- #
 
-function compare_version()
+function compare_versions()
 {
-    if (($# < 2)) || (($# > 3)); then
-        echo "Incorrect number of arguments"
-        return 255
-    fi
-
-    if [[ "${1}" == "${2}" ]]; then
+    if [[ $1 == $2 ]]; then
         return 0
     fi
 
     if (($# == 3)); then
-        local IFS="${3}"
+        IFS=$3
     else
-        local IFS=.
+        IFS=.
     fi
 
-    local i ver1 ver2
+    local i ver1  ver2
+
     read -r -a ver1 <<< "${1}"
     read -r -a ver2 <<< "${2}"
 
-    # fill empty fields in ver1 with zeros
-    if ((${#ver1[@]} != ${#ver2[@]})); then
-        for ((i=${#ver1[@]}; i<${#ver2[@]}; i++))
-        do
-            ver1[i]=0
-        done
-    fi
+    max=$(( ${#ver1[@]} > ${#ver2[@]} ? ${#ver1[@]} : ${#ver2[@]} ))
 
-    for ((i=0; i<${#ver1[@]}; i++))
+    for ((i=0; i<$max; i++))
     do
-        if [[ -z ${ver2[i]} ]]; then
-            # fill empty fields in ver2 with zeros
-            ver2[i]=0
-        fi
-
-        if ((10#${ver1[i]} > 10#${ver2[i]})); then
+        if ((10#${ver1[i]:-0} < 10#${ver2[i]:-0})); then
+            return 2
+        elif ((10#${ver1[i]:-0} > 10#${ver2[i]:-0})); then
             return 1
         fi
-
-        if ((10#${ver1[i]} < 10#${ver2[i]})); then
-            return 2
-        fi
     done
-
+    #if [ "$arem" '<' "$brem" ]; then
+    #    return 2
+    #elif [ "$arem" '>' "$brem" ]; then
+    #    return 1
+    #fi
     return 0
 }
 
@@ -71,9 +58,9 @@ function test_wrapper()
     fi
 
     if (($# == 4)); then
-        compare_version "${1}" "${2}" "${4}"
+        compare_versions "${1}" "${2}" "${4}"
     else
-        compare_version "${1}" "${2}"
+        compare_versions "${1}" "${2}"
     fi
 
     case $? in
@@ -127,6 +114,7 @@ function run_test()
     test_wrapper "3.0.4.10"       "3.0.4.2"        ">"
     test_wrapper "3.2.1.9.8144"   "3.2"            ">"
     test_wrapper "1..1"           "1.0"            ">"
+    test_wrapper "3.0.4.10"       "3.0.4.2"        ">"
     echo
 
     echo "Less than or equal to tests"
@@ -160,7 +148,7 @@ function run_test()
     test_wrapper "4-08"           "4-08-01"        "<"    "-"
     test_wrapper "3-2"            "3-2-1-9-8144"   "<"    "-"
     test_wrapper "2/1"            "1/2"            ">"    "/"
-    test_wrapper "2#1"            "2#2"            "<="   "#"
+    test_wrapper "2#1"            "2#2"            "<"   "#"
     test_wrapper "3=0=4=10"       "3=0=4=2"        ">"    "="
     test_wrapper "3^2^1^9^8144"   "3^2"            ">="   "^"
     test_wrapper "1##1"           "1#0"            "<>"   "#"

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+for file in *
+do
+        #
+        # Comment out these 4 lines if you want to lowercase directories also. 
+        # 
+        if [[ ! -f $file ]]
+        then
+                continue
+        fi
+
+        lc_file=$(echo $file | tr '[A-Z]' '[a-z]');
+        if [ "$file" != "$lc_file" ]
+        then
+                echo "mv $lc_file $file" >> restore.sh
+                mv $file $lc_file;
+        fi
+done
